@@ -80,17 +80,35 @@ tim_berners_lee = Programmer(
     famous_for="World Wide Web"
 )
 
+edwin_kigen = Programmer(
+    first_name="Edwin",
+    last_name="Kigen",
+    gender="M",
+    nationality="Sweden",
+    famous_for="Crypto Investor"
+)
+
+
 # add each instance of our programmers to our session
- session.add(ada_lovelace)
- session.add(alan_turing)
- session.add(grace_hopper)
- session.add(margaret_hamilton)
- session.add(bill_gates)
- session.add(tim_berners_lee)
+#session.add(ada_lovelace)
+#session.add(alan_turing)
+#session.add(grace_hopper)
+#session.add(margaret_hamilton)
+#session.add(bill_gates)
+#session.add(tim_berners_lee)
+#session.add(edwin_kigen)
+
+
+
+
+
+
+programmer = session.query(Programmer).filter_by(id=7).first()
+programmer.famous_for = "World President"
+
 
 # commit our session to the database
- session.commit()
-
+session.commit()
 
 # query the database to find all Programmers
 programmers = session.query(Programmer)
@@ -103,4 +121,3 @@ for programmer in programmers:
         programmer.famous_for,
         sep=" | "
     )
-
